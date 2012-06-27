@@ -31,7 +31,11 @@ $(function() {
   // 問題5 複数の要素の変更
   $("#change_header_html").click(function(){
     $("h2").each(function(){
-      $(this).text("【" + $(this).text() + "】");
+      var elem = $(this);
+      if (!elem.data('header_changed')) {
+        elem.text("【" + elem.text() + "】");
+        elem.data("header_changed", true);
+      }
     });
   });
 
