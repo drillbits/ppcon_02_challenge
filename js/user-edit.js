@@ -6,16 +6,18 @@ $(function() {
   });
 
   // 問題2 要素の追加
-  function add_member(target, name) {
-    target.append($("<li>").text(name));
+  function add_member(target, id, name) {
+    if (target.find("#" + id).length <= 0) {
+      target.append($("<li>", {id: id}).text(name));
+    }
   }
 
   $("#add_sakurako").click(function(){
-    add_member($("#member_list"), "櫻子")
+    add_member($("#member_list"), "sakurako", "櫻子")
   });
 
   $("#add_himawari").click(function(){
-    add_member($("#member_list"), "向日葵")
+    add_member($("#member_list"), "himawari", "向日葵")
   });
 
   // 問題3 要素の削除
